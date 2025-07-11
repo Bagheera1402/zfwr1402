@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Cartas & Portafolio – Menú desplegable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BOTÓN HAMBURGUESA -->
+  <button class="menu-toggle" aria-label="Abrir / cerrar menú" onclick="toggleMenu()">
+    <span class="material-icons">menu</span>
+  </button>
+
+  <!-- MENÚ LATERAL (drawer) -->
+  <aside id="sidebar" class="sidebar">
+    <nav>
+
+      <!-- Grupo CARTAS -->
+      <div class="section-title">Cartas</div>
+
+      <!-- Cada enlace llama a loadPage(key) -->
+      <a href="#carta-16-08-23" class="menu-item"        onclick="loadPage('carta1')">
+        <span class="material-icons">mail</span>
+        <span class="label">16‑08‑2023</span>
+      </a>
+      <a href="#carta-16-09-23" class="menu-item"        onclick="loadPage('carta2')">
+        <span class="material-icons">mail</span>
+        <span class="label">16/21‑09‑2023</span>
+      </a>
+      <a href="#carta-13-07-23" class="menu-item"        onclick="loadPage('carta5')">
+        <span class="material-icons">mail</span>
+        <span class="label">13‑07‑2023</span>
+      </a>
+      <a href="#carta-20-01-24" class="menu-item"        onclick="loadPage('carta3')">
+        <span class="material-icons">mail</span>
+        <span class="label">20‑01‑2024</span>
+      </a>
+      <a href="#carta-23-01-24" class="menu-item"        onclick="loadPage('carta4')">
+        <span class="material-icons">mail</span>
+        <span class="label">23‑01‑2024</span>
+      </a>
+      <a href="#carta-13-07-24" class="menu-item"        onclick="loadPage('carta6')">
+        <span class="material-icons">mail</span>
+        <span class="label">13‑07‑2024</span>
+      </a>
+      <a href="#carta-14-11-24" class="menu-item"        onclick="loadPage('carta7')">
+        <span class="material-icons">mail</span>
+        <span class="label">14‑11‑2024</span>
+      </a>
+
+      <hr>
+
+      <!-- PORTAFOLIO -->
+      <a href="#portafolio"      class="menu-item"        onclick="loadPage('portafolio')">
+        <span class="material-icons">library_music</span>
+        <span class="label">Portafolio Spotify</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="main-content">
+    <!-- El contenido real se carga aquí dentro del iframe -->
+    <iframe id="viewer" title="visor de páginas" src="" frameborder="0" loading="lazy"></iframe>
+  </main>
+
+  <script>
+    /* URLs de cada página externa */
+    const PAGES = {
+      carta1:    'https://cvrbb8.mimo.run/index.html',
+      carta2:    'https://5jl2sg.mimo.run/index.html',
+      carta3:    'https://4ub37a.mimo.run/index.html',
+      carta4:    'https://i2scm3.mimo.run/index.html',
+      carta5:    'https://mcj6qb.mimo.run/index.html',
+      carta6:    'https://fu3cxn.mimo.run/index.html',
+      carta7:    'https://oooief.mimo.run/index.html',
+      portafolio:'https://ih5g60.mimo.run/index.html'
+    };
+
+    const iframe   = document.getElementById('viewer');
+    const sidebar  = document.getElementById('sidebar');
+
+    /* Abre / cierra el drawer */
+    function toggleMenu(){
+      sidebar.classList.toggle('open');
+    }
+
+    /* Carga la URL elegida dentro del iframe */
+    function loadPage(key){
+      iframe.src = PAGES[key];
+      toggleMenu();            // cierra el menú después de elegir
+    }
+
+    /* Carga algo por defecto al entrar (ej: la primera carta) */
+    window.addEventListener('DOMContentLoaded', () => loadPage('carta1'));
+  </script>
+
+</body>
+</html>

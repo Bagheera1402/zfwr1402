@@ -1,0 +1,102 @@
+/* —— reset & layout ——————————————————— */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: cursive, 'Courier New', Courier, monospace;
+  background: #ffffff;
+  color: #111111;
+  overflow: hidden;
+}
+
+/* —— botón hamburguesa ————————————————— */
+.menu-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-toggle .material-icons {
+  font-size: 24px;
+  color: #111111;
+  pointer-events: none;
+}
+
+/* —— sidebar (drawer) ————————————————— */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100%;
+  background: #ffffff;
+  overflow-y: auto;
+  padding: 70px 0 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
+  border-right: 1px solid #ddd;
+}
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  gap: 16px;
+  padding: 12px 24px;
+  color: #111111;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.menu-item:hover {
+  background: #f0f0f0;
+}
+.menu-item .material-icons {
+  font-size: 24px;
+}
+.menu-item .label {
+  font-size: 14px;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: #555555;
+  padding: 20px 24px 6px;
+}
+
+/* —— main content & iframe ——————————— */
+.main-content {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+#iframe,
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
